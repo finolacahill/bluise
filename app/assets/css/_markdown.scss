@@ -10,8 +10,7 @@
 
 .markdown {
   @apply text-gray-900 leading-normal break-words;
-  font-family: 'Times New Roman', Times, serif; /* Apply Times New Roman font */
-}
+  font-family: Georgia, serif; 
 
 .markdown > * + * {
   @apply mt-0 mb-4;
