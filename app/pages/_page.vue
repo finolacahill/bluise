@@ -1,12 +1,16 @@
 <template>
   <section class="page" :class="page.slug">
-    <h1 class="page__title text-lg md:text-xl lg:text-4xl xl:text-6xl text-center py-8 md:py-16">
-      {{ page.title }}
-    </h1>
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-2/3 px-4 md:pr-8">
+        <h1 class="page__title text-lg md:text-xl lg:text-4xl xl:text-6xl text-center py-8 md:py-16">
+          {{ page.title }}
+        </h1>
 
-    <div v-html="$md.render(page.content)" class="page__content markdown pt-4 md:pt-6 md:pb-24" />
-    
-    <img v-if="page.featuredImage" :src="page.featuredImage" alt="Featured Image" class="md:w-1/2 mx-auto my-4 rounded-md" />
+        <div v-html="$md.render(page.content)" class="page__content markdown pt-4 md:pt-6 md:pb-24" />
+      </div>
+
+      <img v-if="page.featuredImage" :src="page.featuredImage" alt="Featured Image" class="md:w-1/3 md:ml-4 rounded-md" />
+    </div>
   </section>
 </template>
 
@@ -67,4 +71,7 @@ export default class PageTemplate extends Vue {
 
 <style scoped>
 /* Add your custom styles here */
+.md\:w-1\/3 {
+  width: 50%; /* 50% of the parent container's width */
+}
 </style>
