@@ -1,16 +1,13 @@
 <template>
   <footer class="footer -mx-4 md:mx-0">
     <div class="container mx-auto pb-6 flex justify-center">
-      <a href="https://www.instagram.com/fifinolala>
-        <!-- Instagram Icon -->
+      <a href="https://www.instagram.com/fifinolala">
         <img src="images/uploads/instagram.png" alt="Instagram" class="icon" />
       </a>
       <a href="https://twitter.com/finolala">
-        <!-- Twitter Icon -->
         <img src="images/uploads/twitter.png" alt="Twitter" class="icon" />
       </a>
-      <a href="https://open.spotify.com/album/47eIpq5u7jcVrBio0zWlAg?si=zVQqXWTsQ_mEbHmp-1o2AQ>
-        <!-- Spotify Icon -->
+      <a href="https://open.spotify.com/album/47eIpq5u7jcVrBio0zWlAg?si=zVQqXWTsQ_mEbHmp-1o2AQ">
         <img src="images/uploads/spotify.png" alt="Spotify" class="icon" />
       </a>
       
