@@ -68,7 +68,7 @@ export default class PageTemplate extends Vue {
       const page = require(`@/content/pages/${params.page}.json`);
       return { page };
     } catch (error) {
-      throw an Error('Page not found');
+      throw new Error('Page not found');
     }
   }
 }
