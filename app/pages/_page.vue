@@ -33,7 +33,37 @@ export default class PageTemplate extends Vue {
   page!: Page;
 
   async asyncData({ params, payload }): Promise<{ page: Page }> {
-    // ...existing asyncData function...
+    if (payload) {
+      return { page: payload };
+    }
+
+    try {
+      const page = require(`@/content/pages/${params.page}.json`);
+
+      return {
+        page,
+      };
+    } catch (e) {
+      throw new Error('Not found');
+    }
+  }
+
+  head(): MetaInfo {
+    return {
+      title: this.page.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page.seoDescription,
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.page.featuredImage || '', // Use default empty string if featuredImage is not defined
+        },
+      ],
+    };
   }
 }
 </script>
