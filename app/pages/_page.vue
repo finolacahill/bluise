@@ -1,10 +1,16 @@
 <template>
   <section class="page" :class="page.slug">
-    <h1 class="page__title text-lg md:text-xl lg:text-4xl xl:text-6xl text-center py-8 md:py-16">
-      {{ page.title }}
-    </h1>
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-2/3 px-4 md:pr-8">
+        <h1 class="page__title text-lg md:text-xl lg:text-4xl xl:text-6xl text-center py-8 md:py-16">
+          {{ page.title }}
+        </h1>
 
-    <div v-html="$md.render(page.content)" class="page__content markdown pt-4 md:pt-6 md:pb-24" />
+        <div v-html="$md.render(page.content)" class="page__content markdown pt-4 md:pt-6 md:pb-24" />
+      </div>
+
+      <img v-if="page.featuredImage" :src="page.featuredImage" alt="Featured Image" class="md:w-1/3 mx-auto my-4 md:my-0 rounded-md" />
+    </div>
   </section>
 </template>
 
@@ -12,51 +18,26 @@
 import { Component, Vue } from 'nuxt-property-decorator';
 import { MetaInfo } from 'vue-meta';
 
+// Define the Page interface here
+interface Page {
+  title: string;
+  seoDescription: string;
+  featuredImage?: string; // Make featuredImage optional
+  content: string;
+}
+
 @Component({
-  // Called to know which transition to apply
-  transition(to, from) {
-    if (!from) {
-      return 'slide-left';
-    }
-
-    return 'slide-right';
-  },
-
-  head(): MetaInfo {
-    return {
-      title: this.page.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.page.seoDescription,
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          content: this.page.seoMetaImage,
-        },
-      ],
-    };
-  },
+  // ...existing component options...
 })
 export default class PageTemplate extends Vue {
   page!: Page;
 
   async asyncData({ params, payload }): Promise<{ page: Page }> {
-    if (payload) {
-      return { page: payload };
-    }
-
-    try {
-      const page = require(`@/content/pages/${params.page}.json`);
-
-      return {
-        page,
-      };
-    } catch (e) {
-      throw new Error('Not found');
-    }
+    // ...existing asyncData function...
   }
 }
 </script>
+
+<style scoped>
+/* Add your custom styles here */
+</style>
