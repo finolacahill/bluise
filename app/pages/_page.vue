@@ -13,7 +13,7 @@
         v-if="page.featuredImage"
         :src="page.featuredImage"
         alt="Featured Image"
-        class="md:h-64 md:ml-4 rounded-md align-middle"
+        class="md:h-110 md:ml-4 rounded-md align-middle"
       />
     </div>
   </section>
