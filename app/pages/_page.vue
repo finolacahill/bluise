@@ -13,7 +13,7 @@
         v-if="page.featuredImage"
         :src="page.featuredImage"
         alt="Featured Image"
-        class="md:h-48 md:ml-4 rounded-md align-middle"
+        class="md:h-64 md:ml-4 rounded-md align-middle"
       />
     </div>
   </section>
@@ -68,7 +68,7 @@ export default class PageTemplate extends Vue {
       const page = require(`@/content/pages/${params.page}.json`);
       return { page };
     } catch (error) {
-      throw new Error('Page not found');
+      throw an Error('Page not found');
     }
   }
 }
