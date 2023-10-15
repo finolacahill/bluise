@@ -1,6 +1,6 @@
 <template>
   <section class="page" :class="page.slug">
-    <div class="flex flex-col md:flex-row items-start"> <!-- Align items to start (top) -->
+    <div class="flex flex-col md:flex-row items-center">
       <div class="md:w-2/3 px-4 md:pr-8">
         <h1 class="page__title text-lg md:text-xl lg:text-4xl xl:text-6xl text-center py-8 md:py-16">
           {{ page.title }}
@@ -9,7 +9,12 @@
         <div v-html="$md.render(page.content)" class="page__content markdown pt-4 md:pt-6 md:pb-24" />
       </div>
 
-      <img v-if="page.featuredImage" :src="page.featuredImage" alt="Featured Image" class="md:w-1/4 md:ml-4 rounded-md align-top" />
+      <img
+        v-if="page.featuredImage"
+        :src="page.featuredImage"
+        alt="Featured Image"
+        class="md:h-64 md:ml-4 rounded-md align-middle"
+      />
     </div>
   </section>
 </template>
@@ -52,7 +57,7 @@ export default class PageTemplate extends Vue {
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.page.featuredImage || '' // Use default empty string if featuredImage is not defined
+          content: this.page.featuredImage || ''
         }
       ]
     };
@@ -71,5 +76,4 @@ export default class PageTemplate extends Vue {
 
 <style scoped>
 /* Add your custom styles here */
-.md\:w-1\/4 {
-  width: 25%; /*
+</style>
