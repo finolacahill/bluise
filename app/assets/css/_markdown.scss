@@ -9,9 +9,9 @@
 }
 
 .markdown {
-  @apply text-gray-900 leading-normal break-words;
+  @apply text-black leading-normal break-words;
+  font-family: Georgia, serif; 
 }
-
 .markdown > * + * {
   @apply mt-0 mb-4;
 }
