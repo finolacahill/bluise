@@ -9,7 +9,7 @@
         <div v-html="$md.render(page.content)" class="page__content markdown pt-4 md:pt-6 md:pb-24" />
       </div>
 
-      <img v-if="page.featuredImage" :src="page.featuredImage" alt="Featured Image" class="md:w-1/3 md:ml-4 rounded-md" />
+      <img v-if="page.featuredImage" :src="page.featuredImage" alt="Featured Image" class="md:w-1/4 md:ml-4 rounded-md" />
     </div>
   </section>
 </template>
@@ -71,7 +71,7 @@ export default class PageTemplate extends Vue {
 
 <style scoped>
 /* Add your custom styles here */
-.md\:w-1\/3 {
-  width: 50%; /* 50% of the parent container's width */
+.md\:w-1\/4 {
+  width: 25%; /* 25% of the parent container's width */
 }
 </style>
