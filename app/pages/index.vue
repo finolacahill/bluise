@@ -34,12 +34,12 @@ export default class Home extends Vue {
     
     // Set meta tags dynamically
     app.head = {
-      title: Finola Cahill Writer &  Musician,
+      title: pageTitle,
       meta: [
         {
-          hid: 'Finola Cahill is an Irish poet, writer and musician from Co. Mayo in the west of Ireland. She is a member of Pembroke with Ellen Quinn Banville',
-          name: 'Finola Cahill is an Irish poet, writer and musician from Co. Mayo in the west of Ireland. She is a member of Pembroke with Ellen Quinn Banville',
-          content: Finola Cahill is an Irish poet, writer and musician from Co. Mayo in the west of Ireland. She is a member of Pembroke with Ellen Quinn Banville,
+          hid: 'description',
+          name: 'description',
+          content: pageDescription,
         },
         // Add more meta tags if needed
       ],
