@@ -40,9 +40,9 @@ interface Page {
 })
 export default class PageTemplate extends Vue {
   page: Page = {
-    title: '',
-    seoDescription: '',
-    content: ''
+    title: '', // Set your page title dynamically in asyncData method
+    seoDescription: '', // Set your SEO description dynamically in asyncData method
+    content: '' // Set your page content dynamically in asyncData method
   };
 
   head(): MetaInfo {
@@ -65,7 +65,13 @@ export default class PageTemplate extends Vue {
 
   async asyncData({ params, payload }): Promise<{ page: Page }> {
     try {
-      const page = require(`@/content/pages/${params.page}.json`);
+      const pageData = require(`@/content/pages/${params.page}.json`);
+      const page: Page = {
+        title: pageData.title,
+        seoDescription: pageData.seoDescription,
+        content: pageData.content,
+        featuredImage: pageData.featuredImage
+      };
       return { page };
     } catch (error) {
       throw new Error('Page not found');
